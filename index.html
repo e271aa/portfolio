@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- ?v=3 makes browsers drop a cached (old) icon; bump it when the icon changes.
+         .ico has real 16/32/48px images and the SVG scales cleanly; neither is a large
+         image that the browser has to shrink to 16px. -->
+    <link rel="icon" href="/favicon.ico?v=3" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
+    <link rel="preload" as="image" type="image/webp" href="/retrato-960.webp" imagesrcset="/retrato-480.webp 480w, /retrato-960.webp 960w" imagesizes="(min-width: 768px) 451px, calc(100vw - 32px)" fetchpriority="high" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ruben Martins | Software Engineer</title>
+    <meta name="description" content="Engenheiro de Software (full-stack, domótica e IoT) em Braga, Portugal. Software Engineer (full-stack, home automation and IoT) based in Braga, Portugal." />
+    <meta name="author" content="Ruben Martins" />
+    <meta name="theme-color" content="#0a0a0a" />
+
+    <!-- Link previews (LinkedIn, WhatsApp, Slack...). They read this static HTML, not the page after
+         JavaScript runs, so it is one text for both languages. %VITE_SITE_URL% comes from .env /
+         .env.production and must be the full address of the site for the image to show up. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Ruben Martins" />
+    <meta property="og:title" content="Ruben Martins | Software Engineer" />
+    <meta property="og:description" content="Engenheiro de Software (full-stack, domótica e IoT) em Braga, Portugal. Software Engineer (full-stack, home automation and IoT) based in Braga, Portugal." />
+    <meta property="og:image" content="%VITE_SITE_URL%/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Ruben Martins, Software Engineer, Braga, Portugal" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Ruben Martins",
+        "jobTitle": "Software Engineer",
+        "address": { "@type": "PostalAddress", "addressLocality": "Braga", "addressCountry": "PT" },
+        "knowsLanguage": ["pt", "en"],
+        "sameAs": ["https://linkedin.com/in/rubentmartins", "https://github.com/e271aa"]
+      }
+    </script>
+    <!-- Paints the page background before the JS bundle (and the stylesheet it injects in dev)
+         has loaded, so the tab does not flash white. Same values as --bg in index.css. -->
+    <style>
+      html { background: #0a0a0a; color-scheme: dark; }
+      html.theme-light { background: #f6f5f0; color-scheme: light; }
+    </style>
+    <script>
+      (function () {
+        try {
+          // Same choice as src/i18n/index.js, so the page's language and tab title are right
+          // before the JavaScript bundle loads.
+          var lang = localStorage.getItem('lang')
+          if (lang !== 'pt' && lang !== 'en') lang = (navigator.language || '').indexOf('pt') === 0 ? 'pt' : 'en'
+          document.documentElement.lang = lang
+          if (lang === 'pt') document.title = 'Ruben Martins | Engenheiro de Software'
+          var mode = localStorage.getItem('themeMode') || 'system'
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+          if (mode === 'light' || (mode === 'system' && !prefersDark)) {
+            document.documentElement.classList.add('theme-light')
+            document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f6f5f0')
+          }
+        } catch (e) {
+          /* private browsing: keep the dark default */
+        }
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0a0a0a"/>
+  <defs><radialGradient id="g" cx="0.65" cy="0.5" r="0.6"><stop offset="0" stop-color="#00ff88" stop-opacity="0.13"/><stop offset="1" stop-color="#00ff88" stop-opacity="0"/></radialGradient></defs><rect width="1200" height="630" fill="url(#g)"/>
+  <text x="80" y="130" font-family="Menlo, Courier New, monospace" font-size="34" fill="#00ff88" font-weight="700">&lt;/&gt; ruben.martins</text>
+  <text x="80" y="330" font-family="Menlo, Courier New, monospace" font-size="120" fill="#f0f0f0" font-weight="700">Ruben Martins</text>
+  <text x="80" y="410" font-family="Menlo, Courier New, monospace" font-size="46" fill="#00ff88">Software Engineer</text>
+  <text x="80" y="470" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="34" fill="#8a8a8a">Engenheiro de Software · Full-stack, domótica e IoT</text>
+  <rect x="80" y="540" width="120" height="6" rx="3" fill="#00ff88"/>
+  <text x="80" y="600" font-family="Menlo, Courier New, monospace" font-size="28" fill="#808080">Braga, Portugal</text>
+</svg>

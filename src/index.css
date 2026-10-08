@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+/* === Fonts ===
+   Both are self-hosted (see main.jsx), so nothing is fetched from Google and the
+   text looks the same on every computer. `font-mono` (used for the name, the typing
+   line, section numbers, dates and tags) now means Fira Code instead of whatever
+   monospace font the visitor's system happens to have. */
+@theme {
+  --font-sans: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'Fira Code Variable', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/* === Colour tokens ===
+   Every colour the site uses is defined here, once per theme. Dark is the
+   default; `html.theme-light` swaps the values. Components only refer to these
+   names (through the Tailwind classes below, or var(--...) in inline styles),
+   so a theme never needs per-class overrides.
+
+   Text contrast is WCAG AA (at least 4.5:1) on every surface it sits on:
+   page, section and card. */
+:root {
+  /* surfaces */
+  --bg: #0a0a0a;
+  --bg-elev: #111111;
+  --bg-card: #131313;
+  --card: rgba(255, 255, 255, 0.02);
+  --field: rgba(255, 255, 255, 0.03);
+  --nav-solid: rgba(10, 10, 10, 0.9);
+  --hover-tint: rgba(255, 255, 255, 0.1);
+
+  /* lines */
+  --border: #1f1f1f;
+  --border-hi: #2a2a2a;
+  --hairline: rgba(255, 255, 255, 0.05);
+  --line: rgba(255, 255, 255, 0.08);
+  --rule: rgba(255, 255, 255, 0.1);
+
+  /* text */
+  --text-strong: #ffffff;
+  --text: #e8e8e8;
+  --text-dim: #8a8a8a;
+  --text-mute: #808080; /* was #5a5a5a (2.6:1); now 4.6:1 on cards */
+  --nav-text: oklch(70.7% 0.022 261.325);
+  --placeholder: oklch(44.6% 0.03 256.802);
+
+  /* the strip over the portrait and the shadow under it: dark in both themes */
+  --on-photo: rgba(255, 255, 255, 0.6);
+  --on-photo-bg: rgba(0, 0, 0, 0.75);
+  --photo-shadow: rgba(0, 0, 0, 0.5);
+
+  --shadow-menu: rgba(0, 0, 0, 0.3);
+
+  /* window dots in the footer terminal */
+  --dot-close: #ff5f57;
+  --dot-min: #ffbd2e;
+  --dot-max: #28c940;
+
+  /* accent (green) */
+  --accent: #00ff88;
+  --accent-text: #000000;
+  --accent-hover: #00e07a;
+  --accent-dim: rgba(0, 255, 136, 0.18);
+  --accent-glow: rgba(0, 255, 136, 0.08);
+  --tag-bg: rgba(0, 255, 136, 0.08);
+  --tag-border: rgba(0, 255, 136, 0.15);
+  --card-hover: rgba(0, 255, 136, 0.2);
+  --highlight-hover: rgba(0, 255, 136, 0.3);
+  --highlight-glow: rgba(0, 255, 136, 0.04);
+  --field-focus: rgba(0, 255, 136, 0.4);
+}
+
+html.theme-light {
+  /* surfaces */
+  --bg: #f6f5f0;
+  --bg-elev: #ffffff;
+  --bg-card: #ffffff;
+  --card: rgba(0, 0, 0, 0.03);
+  --field: #ffffff;
+  --nav-solid: rgba(246, 245, 240, 0.9);
+  --hover-tint: rgba(0, 0, 0, 0.06); /* was white, invisible on the light bar */
+
+  /* lines */
+  --border: #e6e3da;
+  --border-hi: #d3cfc1;
+  --hairline: #e6e3da;
+  --line: #e6e3da;
+  --rule: #e6e3da;
+
+  /* text */
+  --text-strong: #18181b;
+  --text: #18181b;
+  --text-dim: #54545a;
+  --text-mute: #6b6b72; /* was #8a8a90 (3.0:1); now 4.6:1 on cards */
+  --nav-text: #54545a;
+  --placeholder: #6b6b72;
+
+  /* accent (olive): was #818b6e (3.1:1 as text); now 4.9:1, and 5.6:1 for
+     white text on the olive button */
+  --accent: #606b52;
+  --accent-text: #ffffff;
+  --accent-hover: #525c46;
+  --accent-dim: rgba(96, 107, 82, 0.2);
+  --accent-glow: rgba(96, 107, 82, 0.1);
+  --tag-bg: rgba(96, 107, 82, 0.08);
+  --tag-border: rgba(96, 107, 82, 0.25);
+  --card-hover: rgba(96, 107, 82, 0.3);
+  --highlight-hover: rgba(96, 107, 82, 0.3); /* was neon green in light */
+  --highlight-glow: rgba(96, 107, 82, 0.06);
+  --field-focus: rgba(96, 107, 82, 0.4);
+}
+
+/* Expose the tokens as Tailwind colours (bg-card, text-strong, border-line…).
+   `inline` makes each class use the variable directly, so switching theme
+   updates it without any override. */
+@theme inline {
+  --color-card: var(--card);
+  --color-field: var(--field);
+  --color-nav-solid: var(--nav-solid);
+  --color-hover-tint: var(--hover-tint);
+  --color-hairline: var(--hairline);
+  --color-line: var(--line);
+  --color-rule: var(--rule);
+  --color-strong: var(--text-strong);
+  --color-nav: var(--nav-text);
+  --color-placeholder: var(--placeholder);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-text);
+  --color-accent-hover: var(--accent-hover);
+  --color-tag: var(--tag-bg);
+  --color-tag-border: var(--tag-border);
+  --color-card-hover: var(--card-hover);
+  --color-highlight-hover: var(--highlight-hover);
+  --color-field-focus: var(--field-focus);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* One focus ring for every browser, in the accent colour; only shown to keyboard users.
+   In the base layer so a utility like outline-none (on <main>, the skip-link target) wins. */
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition: background-color 0.3s, color 0.3s;
+}

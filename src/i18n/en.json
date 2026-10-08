@@ -1,0 +1,269 @@
+{
+  "nav": {
+    "about": "About",
+    "skills": "Skills",
+    "experience": "Experience",
+    "projects": "Projects",
+    "education": "Education",
+    "highlights": "Highlights",
+    "backToTop": "Back to top",
+    "switchLanguage": "Switch language",
+    "themeSystem": "System theme",
+    "themeLight": "Light mode",
+    "themeDark": "Dark mode",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "skipToContent": "Skip to content"
+  },
+  "hero": {
+    "bio": "Computer Systems Engineer based in Braga. <b>Full-stack</b> developer (Python, React), with two internships building software for smart homes. Looking for a role in <b>software development</b>.",
+    "roles": [
+      "Software Engineer",
+      "Full-Stack Developer",
+      "Backend Developer (Python)",
+      "Frontend Developer (React)",
+      "Android Developer (Kotlin)",
+      "IoT Integrations (MQTT, REST)"
+    ],
+    "seeProject": "See the project",
+    "cvPt": "CV in Portuguese",
+    "cvEn": "CV in English",
+    "cvShort": "CV in PDF",
+    "iconGithub": "GitHub",
+    "iconLinkedin": "LinkedIn",
+    "iconEmail": "Send email",
+    "photoTag": "portrait.webp · 960×1200",
+    "loc": "Braga, PT",
+    "lang": "pt · en",
+    "photoAlt": "Portrait of Ruben Martins",
+    "dragPhoto": "drag your photo",
+    "browseFiles": "or browse files",
+    "dropHere": "drop it here",
+    "locShort": "Braga"
+  },
+  "about": {
+    "num": "01.",
+    "title": "About",
+    "p1": "I hold a <b>Bachelor's degree in Computer Systems Engineering</b> and a background in Networks and IT Security. During my internships at a startup, I worked on the frontend and backend of <accent>software for smart homes</accent>.",
+    "p2": "I implemented integrations with home automation devices using <b>MQTT and REST APIs</b>, worked with AWS to host system instances and ensured a stable development environment with GitLab and Lambda functions.",
+    "p3": "I have also worked with Angular, C#, Kotlin and C++. I am looking for a software development role where I can grow as a developer.",
+    "languages": "Languages",
+    "portuguese": "Portuguese",
+    "portuguese_level": "Native",
+    "english": "English",
+    "english_level": "Upper intermediate (B2)",
+    "contact": "CONTACT"
+  },
+  "skills": {
+    "num": "03.",
+    "title": "Skills & Technologies",
+    "categories": {
+      "Frontend": "Frontend",
+      "Backend": "Backend",
+      "Mobile": "Mobile",
+      "Cloud & DevOps": "Cloud & DevOps",
+      "IoT & Automation": "IoT & Automation",
+      "Data & AI": "Data & AI"
+    },
+    "items": {
+      "networkAdmin": "Network Administration",
+      "networkConfig": "Network Configuration",
+      "voip": "VoIP",
+      "cad": "CAD modelling",
+      "scrum": "Scrum",
+      "dataAnalysis": "Data analysis",
+      "etl": "ETL",
+      "dataStructures": "Data structures and algorithms",
+      "searchAlgorithms": "Search algorithms",
+      "languageProcessing": "Language processing",
+      "genetic": "Genetic algorithms",
+      "linearReg": "Linear regression",
+      "logisticReg": "Logistic regression",
+      "decisionTrees": "Decision trees",
+      "knn": "k-nearest neighbours",
+      "neuralNets": "Neural networks",
+      "oop": "Object-oriented programming",
+      "designPatterns": "Design patterns",
+      "relationalDb": "Relational databases"
+    },
+    "usage": {
+      "work": "At work",
+      "projects": "In projects and coursework"
+    },
+    "other": "Other skills",
+    "foundations": "Foundations and methods"
+  },
+  "experience": {
+    "num": "04.",
+    "title": "Professional Experience",
+    "items": [
+      {
+        "role": "Professional Internship",
+        "company": "A+CASA",
+        "location": "Braga",
+        "period": "Sep 2025 - Jun 2026",
+        "description": "I continued my academic internship work. We moved the system to AWS with version control in GitLab. I helped restructure the platform: a new frontend and a Python backend.",
+        "tags": [
+          "Python",
+          "AWS",
+          "GitLab",
+          "Home Assistant",
+          "Frontend",
+          "MQTT"
+        ]
+      },
+      {
+        "role": "Academic Internship",
+        "company": "A+CASA",
+        "location": "Braga",
+        "period": "Feb 2025 - Jun 2025",
+        "description": "I built automations and energy monitoring in Home Assistant, focused on interoperability between devices. I created custom dashboards to analyse consumption and energy efficiency.",
+        "tags": [
+          "YAML",
+          "Python",
+          "HTML/CSS",
+          "Home Assistant",
+          "IoT",
+          "REST APIs"
+        ]
+      },
+      {
+        "role": "Academic Internship (NOC)",
+        "company": "Fujitsu Technology Solutions",
+        "location": "Braga",
+        "period": "Feb 2022 - Jul 2022",
+        "description": "Six-month internship at the Fujitsu Network Operations Centre. I worked on network infrastructure monitoring and systems administration. I also learnt to configure and maintain networks.",
+        "tags": [
+          "Network infrastructure",
+          "Systems administration",
+          "Monitoring",
+          "NOC"
+        ]
+      },
+      {
+        "role": "Technical support internships",
+        "company": "Happy PC",
+        "location": "Braga",
+        "period": "2017 and 2018",
+        "description": "Two three-month academic internships in IT support: hardware maintenance, repair and troubleshooting.",
+        "tags": [
+          "IT support",
+          "Hardware",
+          "Maintenance"
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "num": "02.",
+    "title": "Projects",
+    "nook": {
+      "name": "Nook",
+      "lead": "A home automation panel for Home Assistant, with a simulated Portuguese house behind it. The demo opens without a login: you come in as a visitor and control the house.",
+      "demo": "Open the demo",
+      "code": "Code",
+      "shots": {
+        "tablet": {
+          "caption": "The Home screen, on a wall tablet",
+          "alt": "The Nook Home screen on a tablet, in Portuguese: the verdict that all is well, the temperature, lights, blinds and who is at home, the ground-floor plan with three lights on, plus six scene shortcuts."
+        },
+        "phone": {
+          "caption": "The same screen, on a phone",
+          "alt": "The same screen on a phone, in a single column: the verdict, the four facts about the house, the floor plan and the tab bar at the bottom."
+        }
+      },
+      "workTitle": "What I did",
+      "work": [
+        "I designed and wrote the panel in JavaScript and CSS, with no dependencies and no build step. It adapts to the screen it is on.",
+        "I wrote the Python integration that simulates the house: lights, blinds, climate, cameras and 30 days of energy history.",
+        "I got it ready for the internet: a visitor can only control the simulated house, and administration only opens on the home network. It starts with one Docker Compose command."
+      ],
+      "screensTitle": "Screens",
+      "screens": [
+        "Wall tablet",
+        "Television",
+        "Phone"
+      ],
+      "stackTitle": "Built with"
+    }
+  },
+  "education": {
+    "num": "05.",
+    "title": "Education",
+    "items": [
+      {
+        "id": "degree",
+        "degree": "Bachelor's degree in Computer Systems Engineering",
+        "institution": "Instituto Politécnico do Cávado e do Ave (IPCA)",
+        "location": "Barcelos",
+        "period": "Sep 2022 - Jul 2025",
+        "description": "Application and systems programming, information and knowledge systems, computer architecture and communication networks."
+      },
+      {
+        "id": "networks",
+        "degree": "CTeSP in Networks and IT Security",
+        "institution": "Instituto Politécnico do Cávado e do Ave (IPCA)",
+        "location": "Vila Nova de Famalicão",
+        "period": "Sep 2020 - Jul 2022",
+        "description": "Covered networking, structured cabling, server installation and configuration, as well as programming in C++ and C#. Trained in forensic audits, voice services (VoIP) and file encryption and decryption."
+      },
+      {
+        "id": "energy",
+        "degree": "CTeSP in Energy, Telecommunications and Home Automation",
+        "institution": "Instituto Politécnico do Cávado e do Ave (IPCA)",
+        "location": "Vila Nova de Famalicão",
+        "period": "Sep 2019 - Jul 2020",
+        "description": "Training in planning, sizing and building electrical installations, telecommunications infrastructure and home automation systems.",
+        "note": "Attended for 2 semesters"
+      },
+      {
+        "id": "vocational",
+        "degree": "Professional Course: Computer Equipment Management Technician",
+        "institution": "Escola Secundária de Amares",
+        "location": "Amares",
+        "period": "Sep 2016 - Jul 2019",
+        "description": "Hardware maintenance and repair, network management and operating systems."
+      }
+    ]
+  },
+  "highlights": {
+    "num": "06.",
+    "title": "Highlights",
+    "items": [
+      {
+        "id": "cospace",
+        "title": "National Robotics Champion (COSPACE)",
+        "date": "Apr 2018",
+        "location": "Torres Vedras, Portugal",
+        "description": "With my classmates from Escola Secundária de Amares, we became national champions in GUI-mode programming at the COSPACE competition. The team qualified for the World Robotics Championship in Montreal, Canada.",
+        "badge": "National Champion"
+      },
+      {
+        "id": "websummit",
+        "title": "Web Summit",
+        "date": "Nov 2025",
+        "location": "Lisbon, Portugal",
+        "description": "I was on the A+CASA stand, presenting the company's product to visitors. I also went to talks and met other technology companies.",
+        "badge": "Conference"
+      },
+      {
+        "id": "roboparty",
+        "title": "RoboParty (Univ. do Minho)",
+        "date": "Mar 2018",
+        "location": "Guimarães, Portugal",
+        "description": "I took part in RoboParty at Universidade do Minho, my first hands-on experience with robotics.",
+        "badge": "Event"
+      }
+    ]
+  },
+  "footer": {
+    "status": "available for new opportunities",
+    "backToTop": "back to top",
+    "whoami": "ruben.martins · software engineer @ braga",
+    "thanks": "thanks for visiting",
+    "clockCity": "Lisbon"
+  },
+  "meta": {
+    "title": "Ruben Martins | Software Engineer"
+  }
+}
