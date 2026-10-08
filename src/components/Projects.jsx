@@ -11,21 +11,37 @@ const LABEL = 'font-mono text-xs text-[var(--text-mute)]'
 
 // A capture on its own: the same 1px line and 12px corner as the cards, no device drawn around it.
 // The line is an outline, not a border, so it takes no room and both captures keep their shape.
-function Shot({ name, className = '' }) {
+// With a demo address, the capture is a link to the demo as well.
+function Shot({ name, demo, className = '' }) {
   const { t } = useTranslation()
   const { src, width, height } = NOOK_SHOTS[name]
+  const image = (
+    <img
+      src={src}
+      width={width}
+      height={height}
+      alt={t(`projects.nook.shots.${name}.alt`)}
+      loading="lazy"
+      decoding="async"
+      className="block h-auto w-full rounded-xl outline-1 -outline-offset-1 outline-line transition-[outline-color] duration-150 group-hover:outline-accent"
+    />
+  )
 
   return (
     <figure className={className}>
-      <img
-        src={src}
-        width={width}
-        height={height}
-        alt={t(`projects.nook.shots.${name}.alt`)}
-        loading="lazy"
-        decoding="async"
-        className="block h-auto w-full rounded-xl outline-1 -outline-offset-1 outline-line"
-      />
+      {demo ? (
+        <a
+          href={demo}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={`${t('projects.nook.demo')}: ${t(`projects.nook.shots.${name}.caption`)}`}
+          className="group block rounded-xl"
+        >
+          {image}
+        </a>
+      ) : (
+        image
+      )}
       <figcaption className={`mt-2 ${LABEL}`}>{t(`projects.nook.shots.${name}.caption`)}</figcaption>
     </figure>
   )
@@ -81,8 +97,8 @@ export default function Projects() {
               computer both end up the same height. On a phone the tablet takes the full width
               and the facts sit beside the phone capture. */}
           <div className="mt-10 grid grid-cols-2 gap-x-4 gap-y-8 md:grid-cols-[1600fr_462fr] md:gap-x-6 md:gap-y-10">
-            <Shot name="tablet" className="col-span-2 md:col-span-1" />
-            <Shot name="phone" />
+            <Shot name="tablet" demo={demo} className="col-span-2 md:col-span-1" />
+            <Shot name="phone" demo={demo} />
 
             <dl className="space-y-6 md:col-start-2 md:row-start-2">
               <div>

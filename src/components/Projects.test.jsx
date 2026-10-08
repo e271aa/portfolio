@@ -79,8 +79,23 @@ describe('Projects section', () => {
     await renderProjects('pt')
 
     const links = screen.getAllByRole('link')
-    expect(links).toHaveLength(1)
-    expect(links[0]).toHaveAttribute('href', DEMO_URL)
+    expect(links.length).toBeGreaterThan(0)
+    for (const link of links) expect(link).toHaveAttribute('href', DEMO_URL)
+  })
+
+  it.each(['pt', 'en'])('opens the demo from each capture in %s', async (lang) => {
+    vi.stubEnv('VITE_DEMO_URL', DEMO_URL)
+    const { container } = await renderProjects(lang)
+
+    const shots = [...container.querySelectorAll('figure')]
+    expect(shots).toHaveLength(2)
+    for (const shot of shots) {
+      const link = shot.querySelector('a')
+      expect(link).toHaveAttribute('href', DEMO_URL)
+      expect(link).toHaveAttribute('target', '_blank')
+      expect(link.querySelector('img')).not.toBeNull()
+      expect(link.getAttribute('aria-label')).toMatch(lang === 'pt' ? /^Abrir a demo/ : /^Open the demo/)
+    }
   })
 
   it('shows the code button only when VITE_NOOK_REPO_URL is set', async () => {
