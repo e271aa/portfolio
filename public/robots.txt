@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Add the line below once the domain exists (phase 19b):
-# Sitemap: https://YOUR-DOMAIN/sitemap.xml
+Sitemap: https://portfolio.e271aa.blog/sitemap.xml
