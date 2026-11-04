@@ -22,7 +22,7 @@ describe('Navbar', () => {
     await renderNavbar()
 
     expect(screen.getByRole('link', { name: 'Back to top' })).toHaveClass('min-h-11')
-    for (const arrow of screen.getAllByRole('button', { name: 'CV in Portuguese' })) {
+    for (const arrow of screen.getAllByRole('button', { name: 'More CV versions' })) {
       expect(arrow).toHaveClass('min-h-11', 'min-w-11')
     }
   })

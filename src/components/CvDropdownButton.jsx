@@ -2,15 +2,19 @@ import { useEffect, useId, useRef, useState } from 'react'
 import { ChevronDown, Download } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
-// What each language's file is called, and what it is saved as. The saved name carries the
-// person's name, because that is what ends up in a recruiter's downloads folder.
+// What each file is called, and what it is saved as. The saved name carries the person's name,
+// because that is what ends up in a recruiter's downloads folder. Each language has the plain
+// CV that ATS software reads well, and a designed version for people.
+const file = (name) => ({ href: `/${name}`, saveAs: name })
 const CV_FILES = {
-  pt: { href: '/Ruben_Martins_CV_PT.pdf', saveAs: 'Ruben_Martins_CV_PT.pdf' },
-  en: { href: '/Ruben_Martins_CV_EN.pdf', saveAs: 'Ruben_Martins_CV_EN.pdf' },
+  pt: file('Ruben_Martins_CV_PT.pdf'),
+  en: file('Ruben_Martins_CV_EN.pdf'),
+  ptDesign: file('Ruben_Martins_CV_Design_PT.pdf'),
+  enDesign: file('Ruben_Martins_CV_Design_EN.pdf'),
 }
 
 // The two looks share one structure: a main link, a thin divider and an arrow that opens a
-// small menu with the CV in the other language. Only the classes differ.
+// small menu with the other versions of the CV. Only the classes differ.
 const STYLES = {
   // hero call to action
   filled: {
@@ -59,9 +63,16 @@ export default function CvDropdownButton({ variant = 'outline', compact = false 
     }
   }, [open])
 
-  const labels = { pt: t('hero.cvPt'), en: t('hero.cvEn') }
+  const labels = {
+    pt: t('hero.cvPt'),
+    en: t('hero.cvEn'),
+    ptDesign: t('hero.cvPtDesign'),
+    enDesign: t('hero.cvEnDesign'),
+  }
   const own = isPt ? 'pt' : 'en'
   const other = isPt ? 'en' : 'pt'
+  // The page language first, then the other language.
+  const menuItems = [`${own}Design`, other, `${other}Design`]
   const showIcon = variant === 'filled' || compact
   const mainLabel = compact ? t('hero.cvShort') : labels[own]
 
@@ -86,7 +97,7 @@ export default function CvDropdownButton({ variant = 'outline', compact = false 
         type="button"
         onClick={() => setOpen((v) => !v)}
         className={`flex items-center justify-center transition-colors duration-200 ${styles.toggle}`}
-        aria-label={labels[other]}
+        aria-label={t('hero.cvMore')}
         aria-expanded={open}
         aria-haspopup="menu"
         aria-controls={menuId}
@@ -103,16 +114,19 @@ export default function CvDropdownButton({ variant = 'outline', compact = false 
           role="menu"
           className={`absolute top-full ${styles.menuSide} mt-2 rounded-md z-50 overflow-hidden min-w-full bg-[var(--bg-card)] border border-[var(--border-hi)] shadow-[0_8px_24px_var(--shadow-menu)]`}
         >
-          <a
-            href={CV_FILES[other].href}
-            download={CV_FILES[other].saveAs}
-            role="menuitem"
-            onClick={() => setOpen(false)}
-            className="flex items-center gap-2 px-4 py-3 text-sm whitespace-nowrap transition-colors text-[var(--text-dim)] hover:text-accent focus-visible:text-accent"
-          >
-            <Download size={13} />
-            {labels[other]}
-          </a>
+          {menuItems.map((key) => (
+            <a
+              key={key}
+              href={CV_FILES[key].href}
+              download={CV_FILES[key].saveAs}
+              role="menuitem"
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-2 px-4 py-3 text-sm whitespace-nowrap transition-colors text-[var(--text-dim)] hover:text-accent focus-visible:text-accent"
+            >
+              <Download size={13} />
+              {labels[key]}
+            </a>
+          ))}
         </div>
       )}
     </div>

@@ -34,7 +34,8 @@ for (const lang of ['pt', 'en']) {
 }
 
 test('the CV downloads in both languages', async ({ page }) => {
-  for (const file of ['Ruben_Martins_CV_PT.pdf', 'Ruben_Martins_CV_EN.pdf']) {
+  const files = ['Ruben_Martins_CV_PT.pdf', 'Ruben_Martins_CV_EN.pdf', 'Ruben_Martins_CV_Design_PT.pdf', 'Ruben_Martins_CV_Design_EN.pdf']
+  for (const file of files) {
     const res = await page.request.get(`/${file}`)
     expect(res.status()).toBe(200)
     expect(res.headers()['content-type']).toContain('pdf')
