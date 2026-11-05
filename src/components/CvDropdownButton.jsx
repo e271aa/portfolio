@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 
 // What each file is called, and what it is saved as. The saved name carries the person's name,
 // because that is what ends up in a recruiter's downloads folder. Each language has the plain
-// CV that ATS software reads well, and a designed version for people.
+// CV that ATS software reads well, and a version with a photo and colour for people.
 const file = (name) => ({ href: `/${name}`, saveAs: name })
 const CV_FILES = {
   pt: file('Ruben_Martins_CV_PT.pdf'),
