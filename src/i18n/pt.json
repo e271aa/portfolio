@@ -211,7 +211,7 @@
       "work": [
         "Escrevi o servidor em C#, que compila para .NET 8 e para .NET Framework 4.8, para correr no PC da receção com Windows 7, com os dados em SQLite.",
         "Fiz a interface em React e TypeScript, em português e inglês: mapa de quartos, reservas, check-in e check-out, pagamentos e cartões de quarto.",
-        "Juntei os boletins para o SIBA, ferramentas de RGPD, cópias de segurança automáticas e um instalador Windows, com mais de 1 500 testes automáticos."
+        "Juntei os boletins para o SIBA, ferramentas de RGPD, cópias de segurança automáticas e um instalador Windows, com mais de 1 500 testes automáticos."
       ]
     },
     "hotelSite": {
