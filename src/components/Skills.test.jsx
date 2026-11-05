@@ -48,9 +48,9 @@ describe('Skills section', () => {
     const { work, projects } = LABELS[lang]
 
     expect(tagsUnder('Backend', work)).toEqual(['Python'])
-    expect(tagsUnder('Backend', projects)).toEqual(['C#', 'C/C++'])
+    expect(tagsUnder('Backend', projects)).toEqual(['C#', '.NET', 'C/C++'])
     expect(tagsUnder('Frontend', work)).toEqual(['HTML/CSS/JS', 'React.js'])
-    expect(tagsUnder('Frontend', projects)).toEqual(['Angular'])
+    expect(tagsUnder('Frontend', projects)).toEqual(['TypeScript', 'Next.js', 'Tailwind CSS', 'Angular'])
   })
 
   it('leaves out a label that has nothing under it', async () => {
@@ -59,5 +59,25 @@ describe('Skills section', () => {
     expect(tagsUnder('Mobile', LABELS.en.work)).toBeNull()
     expect(tagsUnder('Mobile', LABELS.en.projects)).toEqual(['Kotlin', 'Android Jetpack'])
     expect(tagsUnder('IoT & Automation', LABELS.en.projects)).toBeNull()
+  })
+})
+
+describe('Skills from the CV', () => {
+  it.each([
+    ['pt', 'Dados', 'Testes'],
+    ['en', 'Data', 'Testing'],
+  ])('lists data and testing in %s', async (lang, data, testing) => {
+    await renderSkills(lang)
+    const { projects } = LABELS[lang]
+
+    expect(tagsUnder(data, projects)).toEqual(expect.arrayContaining(['PostgreSQL', 'SQLite', 'SQL']))
+    expect(tagsUnder(testing, projects)).toEqual(['xUnit', 'Vitest', 'Playwright'])
+  })
+
+  it('keeps machine learning out of the main cards', async () => {
+    await renderSkills('en')
+    const cards = screen.getAllByRole('heading', { level: 3 }).map((h) => h.parentElement.textContent).join(' ')
+
+    expect(cards).not.toMatch(/Machine Learning|Data & AI/)
   })
 })

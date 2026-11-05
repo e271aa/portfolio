@@ -16,13 +16,12 @@
     "skipToContent": "Saltar para o conteúdo"
   },
   "hero": {
-    "bio": "Engenheiro de Sistemas Informáticos em Braga. Programador <b>full-stack</b> (Python, React), com dois estágios a construir software para casas inteligentes. Procuro uma posição em <b>desenvolvimento de software</b>.",
+    "bio": "Programador <b>full-stack</b> (Python, C#, React) em Braga. Em 15 meses numa startup de domótica e energia, passei de estagiário a Lead Full-Stack Developer. Procuro uma posição em <b>desenvolvimento de software</b>.",
     "roles": [
       "Engenheiro de Software",
       "Programador Full-Stack",
-      "Programador Backend (Python)",
-      "Programador Frontend (React)",
-      "Programador Android (Kotlin)",
+      "Programador Backend (Python, C#)",
+      "Programador Frontend (React, TypeScript)",
       "Integrações IoT (MQTT, REST)"
     ],
     "seeProject": "Ver o projeto",
@@ -47,9 +46,9 @@
   "about": {
     "num": "01.",
     "title": "Sobre",
-    "p1": "Sou licenciado em <b>Engenharia de Sistemas Informáticos</b> e tenho formação em Redes e Segurança Informática. Nos estágios numa startup, trabalhei no frontend e no backend de <accent>software para casas inteligentes</accent>.",
-    "p2": "Implementei integrações com dispositivos de domótica usando <b>MQTT e REST APIs</b>, trabalhei com AWS para alojar instâncias do sistema e assegurei um ambiente de desenvolvimento estável com GitLab e funções Lambda.",
-    "p3": "Também trabalhei com Angular, C#, Kotlin e C++. Procuro uma posição em desenvolvimento de software onde possa crescer como programador.",
+    "p1": "Sou licenciado em <b>Engenharia de Sistemas Informáticos</b> pelo IPCA. Na A+CASA, uma startup de domótica e energia, passei de estagiário a <accent>Lead Full-Stack Developer</accent> do produto residencial A+HOME, instalado em 10 a 20 casas.",
+    "p2": "Trabalhei no frontend e no backend, em Python, JavaScript e React, com integrações por <b>MQTT e APIs REST</b> e o sistema alojado na AWS, com funções Lambda e GitLab. Na Web Summit 2025 apresentei no stand da empresa a sua solução para negócios.",
+    "p3": "Também desenvolvo projetos meus e freelance: o sistema de gestão do Hotel Troia, em C# e React com TypeScript, e o site do hotel, em Next.js. Procuro uma posição em desenvolvimento de software, em Braga, no Porto ou em remoto.",
     "languages": "Idiomas",
     "portuguese": "Português",
     "portuguese_level": "Nativo",
@@ -66,7 +65,8 @@
       "Mobile": "Mobile",
       "Cloud & DevOps": "Cloud & DevOps",
       "IoT & Automation": "IoT e Automação",
-      "Data & AI": "Dados e IA"
+      "Data": "Dados",
+      "Testing": "Testes"
     },
     "items": {
       "networkAdmin": "Administração de Redes",
@@ -101,32 +101,47 @@
     "title": "Experiência Profissional",
     "items": [
       {
-        "role": "Estágio Profissional",
+        "role": "Lead Full-Stack Developer",
         "company": "A+CASA",
         "location": "Braga",
-        "period": "Set 2025 - Jun 2026",
-        "description": "Continuei o trabalho do estágio curricular. Passámos o sistema para a AWS, com controlo de versões no GitLab. Ajudei a reestruturar a plataforma: frontend novo e backend em Python.",
+        "period": "Abr 2026 - Jun 2026",
+        "description": "Liderei o desenvolvimento do A+HOME, instalado em 10 a 20 casas: arquitetura, decisões técnicas e planeamento das entregas. Evoluí o backoffice interno e as integrações, em Python e React.",
         "tags": [
           "Python",
+          "React",
           "AWS",
+          "AWS Lambda",
           "GitLab",
-          "Home Assistant",
-          "Frontend",
           "MQTT"
         ]
       },
       {
-        "role": "Estágio Curricular",
+        "role": "Full-Stack Developer (Estágio Profissional)",
+        "company": "A+CASA",
+        "location": "Braga",
+        "period": "Set 2025 - Mar 2026",
+        "description": "Substituí a interface do Home Assistant por um frontend próprio com backend em Python e criei um backoffice para configurar cada cliente. Migrámos o sistema para a AWS.",
+        "tags": [
+          "Python",
+          "JavaScript",
+          "AWS",
+          "GitLab",
+          "Home Assistant",
+          "MQTT"
+        ]
+      },
+      {
+        "role": "Junior Full-Stack Developer (Estágio Curricular)",
         "company": "A+CASA",
         "location": "Braga",
         "period": "Fev 2025 - Jun 2025",
-        "description": "Desenvolvi automações e monitorização energética no Home Assistant, com foco na interoperabilidade entre dispositivos. Criei dashboards personalizados para analisar o consumo e a eficiência energética.",
+        "description": "Desenvolvi automações, monitorização de energia e dashboards de consumo no Home Assistant, com Python e YAML. Integrei dispositivos por MQTT e APIs REST e instalei sensores em obra.",
         "tags": [
           "YAML",
           "Python",
           "HTML/CSS",
           "Home Assistant",
-          "IoT",
+          "MQTT",
           "REST APIs"
         ]
       },
@@ -188,6 +203,27 @@
         "Telemóvel"
       ],
       "stackTitle": "Feito com"
+    },
+    "hotelSystem": {
+      "name": "Sistema de Gestão Hoteleira (Freelance)",
+      "client": "Hotel Troia, Amares · 2026",
+      "lead": "Sistema de gestão para um hotel de 34 quartos, que substitui o mapa de reservas em papel e o software de fechaduras de 2013. É usado pela receção, pela limpeza e pela administração.",
+      "work": [
+        "Escrevi o servidor em C#, que compila para .NET 8 e para .NET Framework 4.8, para correr no PC da receção com Windows 7, com os dados em SQLite.",
+        "Fiz a interface em React e TypeScript, em português e inglês: mapa de quartos, reservas, check-in e check-out, pagamentos e cartões de quarto.",
+        "Juntei os boletins para o SIBA, ferramentas de RGPD, cópias de segurança automáticas e um instalador Windows, com mais de 1 500 testes automáticos."
+      ]
+    },
+    "hotelSite": {
+      "name": "Site do Hotel e Restaurante (Freelance)",
+      "client": "Hotel Troia, Amares · 2026",
+      "lead": "Site do hotel e do restaurante, com menu digital e reservas online.",
+      "work": [
+        "Fiz o site em Next.js.",
+        "Criei o sistema de reservas online, com base de dados PostgreSQL.",
+        "Juntei um backoffice para a equipa gerir as reservas."
+      ],
+      "visit": "Ver o site"
     }
   },
   "education": {

@@ -6,12 +6,12 @@ export const categories = [
   {
     key: 'Backend',
     work: [{ name: 'Python' }],
-    projects: [{ name: 'C#' }, { name: 'C/C++' }],
+    projects: [{ name: 'C#' }, { name: '.NET' }, { name: 'C/C++' }],
   },
   {
     key: 'Frontend',
     work: [{ name: 'HTML/CSS/JS' }, { name: 'React.js' }],
-    projects: [{ name: 'Angular' }],
+    projects: [{ name: 'TypeScript' }, { name: 'Next.js' }, { name: 'Tailwind CSS' }, { name: 'Angular' }],
   },
   {
     key: 'Mobile',
@@ -21,7 +21,7 @@ export const categories = [
   {
     key: 'Cloud & DevOps',
     work: [{ name: 'AWS' }, { name: 'AWS Lambda' }, { name: 'GitLab' }, { name: 'Linux' }],
-    projects: [{ name: 'Docker Compose' }],
+    projects: [{ name: 'Docker Compose' }, { name: 'Git' }, { name: 'GitHub Actions' }, { name: 'Cloudflare' }],
   },
   {
     key: 'IoT & Automation',
@@ -29,14 +29,20 @@ export const categories = [
     projects: [],
   },
   {
-    key: 'Data & AI',
+    key: 'Data',
     work: [],
     projects: [
+      { name: 'PostgreSQL' },
+      { name: 'SQLite' },
       { name: 'SQL' },
       { nameKey: 'dataAnalysis' },
-      { name: 'Machine Learning' },
-      { nameKey: 'searchAlgorithms' },
+      { name: 'Power BI' },
     ],
+  },
+  {
+    key: 'Testing',
+    work: [],
+    projects: [{ name: 'xUnit' }, { name: 'Vitest' }, { name: 'Playwright' }],
   },
 ]
 
@@ -55,6 +61,8 @@ export const foundations = [
 // Real skills that are not what the site is selling right now (web and software roles).
 // Kept in a closed "Other skills" list: still on the page for anyone who looks, no level shown.
 export const otherSkills = [
+  { name: 'Machine Learning' },
+  { nameKey: 'searchAlgorithms' },
   { name: 'A*' },
   { name: 'BFS' },
   { name: 'DFS' },

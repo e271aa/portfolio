@@ -38,7 +38,7 @@ describe('Hero', () => {
   it.each(['pt', 'en'])('lists only real job titles in %s', (lang) => {
     const roles = LOCALES[lang].hero.roles
 
-    expect(roles).toHaveLength(6)
+    expect(roles).toHaveLength(5)
     expect(roles.join(' ')).not.toMatch(/Orientado para Soluções|Problem Solver|Dev\b/)
   })
 

@@ -16,13 +16,12 @@
     "skipToContent": "Skip to content"
   },
   "hero": {
-    "bio": "Computer Systems Engineer based in Braga. <b>Full-stack</b> developer (Python, React), with two internships building software for smart homes. Looking for a role in <b>software development</b>.",
+    "bio": "<b>Full-stack</b> developer (Python, C#, React) based in Braga. Over 15 months at a home automation and energy startup, I grew from intern to Lead Full-Stack Developer. Looking for a role in <b>software development</b>.",
     "roles": [
       "Software Engineer",
       "Full-Stack Developer",
-      "Backend Developer (Python)",
-      "Frontend Developer (React)",
-      "Android Developer (Kotlin)",
+      "Backend Developer (Python, C#)",
+      "Frontend Developer (React, TypeScript)",
       "IoT Integrations (MQTT, REST)"
     ],
     "seeProject": "See the project",
@@ -47,9 +46,9 @@
   "about": {
     "num": "01.",
     "title": "About",
-    "p1": "I hold a <b>Bachelor's degree in Computer Systems Engineering</b> and a background in Networks and IT Security. During my internships at a startup, I worked on the frontend and backend of <accent>software for smart homes</accent>.",
-    "p2": "I implemented integrations with home automation devices using <b>MQTT and REST APIs</b>, worked with AWS to host system instances and ensured a stable development environment with GitLab and Lambda functions.",
-    "p3": "I have also worked with Angular, C#, Kotlin and C++. I am looking for a software development role where I can grow as a developer.",
+    "p1": "I hold a <b>Bachelor's degree in Computer Systems Engineering</b> from IPCA. At A+CASA, a home automation and energy startup, I grew from intern to <accent>Lead Full-Stack Developer</accent> of the A+HOME residential product, installed in 10 to 20 homes.",
+    "p2": "I worked on the front end and the back end in Python, JavaScript and React, with <b>MQTT and REST API</b> integrations and the system hosted on AWS, with Lambda functions and GitLab. At Web Summit 2025 I presented the company's business solution at its stand.",
+    "p3": "I also build my own and freelance projects: the management system of Hotel Troia, in C# and React with TypeScript, and the hotel's website, in Next.js. I am looking for a software development role in Braga, Porto or remote.",
     "languages": "Languages",
     "portuguese": "Portuguese",
     "portuguese_level": "Native",
@@ -66,7 +65,8 @@
       "Mobile": "Mobile",
       "Cloud & DevOps": "Cloud & DevOps",
       "IoT & Automation": "IoT & Automation",
-      "Data & AI": "Data & AI"
+      "Data": "Data",
+      "Testing": "Testing"
     },
     "items": {
       "networkAdmin": "Network Administration",
@@ -101,32 +101,47 @@
     "title": "Professional Experience",
     "items": [
       {
-        "role": "Professional Internship",
+        "role": "Lead Full-Stack Developer",
         "company": "A+CASA",
         "location": "Braga",
-        "period": "Sep 2025 - Jun 2026",
-        "description": "I continued my academic internship work. We moved the system to AWS with version control in GitLab. I helped restructure the platform: a new frontend and a Python backend.",
+        "period": "Apr 2026 - Jun 2026",
+        "description": "I led the development of A+HOME, installed in 10 to 20 homes: architecture, technical decisions and delivery planning. I evolved the back office and the integrations in Python and React.",
         "tags": [
           "Python",
+          "React",
           "AWS",
+          "AWS Lambda",
           "GitLab",
-          "Home Assistant",
-          "Frontend",
           "MQTT"
         ]
       },
       {
-        "role": "Academic Internship",
+        "role": "Full-Stack Developer (Professional Internship)",
+        "company": "A+CASA",
+        "location": "Braga",
+        "period": "Sep 2025 - Mar 2026",
+        "description": "I replaced the Home Assistant interface with a custom front end backed by Python and built a back office to set up each client. We moved the system to AWS.",
+        "tags": [
+          "Python",
+          "JavaScript",
+          "AWS",
+          "GitLab",
+          "Home Assistant",
+          "MQTT"
+        ]
+      },
+      {
+        "role": "Junior Full-Stack Developer (Academic Internship)",
         "company": "A+CASA",
         "location": "Braga",
         "period": "Feb 2025 - Jun 2025",
-        "description": "I built automations and energy monitoring in Home Assistant, focused on interoperability between devices. I created custom dashboards to analyse consumption and energy efficiency.",
+        "description": "I built automations, energy monitoring and consumption dashboards in Home Assistant with Python and YAML. I integrated devices over MQTT and REST APIs and installed sensors on site.",
         "tags": [
           "YAML",
           "Python",
           "HTML/CSS",
           "Home Assistant",
-          "IoT",
+          "MQTT",
           "REST APIs"
         ]
       },
@@ -188,6 +203,27 @@
         "Phone"
       ],
       "stackTitle": "Built with"
+    },
+    "hotelSystem": {
+      "name": "Hotel Management System (Freelance)",
+      "client": "Hotel Troia, Amares · 2026",
+      "lead": "A management system for a 34-room hotel, replacing the paper booking chart and the 2013 door-lock software. It is used by the front desk, housekeeping and management.",
+      "work": [
+        "I wrote the server in C#, which builds for .NET 8 and for .NET Framework 4.8, so it runs on the front desk's Windows 7 PC, with the data in SQLite.",
+        "I built the interface in React and TypeScript, in Portuguese and English: room map, bookings, check-in and check-out, payments and room key cards.",
+        "I added guest reports for the Portuguese border service (SIBA), GDPR tools, automatic backups and a Windows installer, with over 1,500 automated tests."
+      ]
+    },
+    "hotelSite": {
+      "name": "Hotel and Restaurant Website (Freelance)",
+      "client": "Hotel Troia, Amares · 2026",
+      "lead": "The hotel and restaurant website, with a digital menu and online bookings.",
+      "work": [
+        "I built the website in Next.js.",
+        "I created the online booking system, with a PostgreSQL database.",
+        "I added a back office for the team to manage bookings."
+      ],
+      "visit": "View the site"
     }
   },
   "education": {

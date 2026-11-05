@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { render, screen, within } from '@testing-library/react'
 import { LazyMotion, domAnimation } from 'framer-motion'
 import i18n from '../i18n/index.js'
 import pt from '../i18n/pt.json'
@@ -19,6 +19,9 @@ async function renderProjects(lang) {
     </LazyMotion>,
   )
 }
+
+// The Nook's own card: its buttons and captures, without the client projects below it.
+const nook = () => within(screen.getByRole('article', { name: 'Nook' }))
 
 describe('Projects section', () => {
   // Start every test with both addresses unset, whatever a local .env file says.
@@ -55,10 +58,10 @@ describe('Projects section', () => {
       }
     })
 
-    it('shows no button while the addresses are unset', async () => {
+    it('shows no Nook button while the addresses are unset', async () => {
       await renderProjects(lang)
 
-      expect(screen.queryAllByRole('link')).toHaveLength(0)
+      expect(nook().queryAllByRole('link')).toHaveLength(0)
     })
   })
 
@@ -78,7 +81,7 @@ describe('Projects section', () => {
     vi.stubEnv('VITE_DEMO_URL', DEMO_URL)
     await renderProjects('pt')
 
-    const links = screen.getAllByRole('link')
+    const links = nook().getAllByRole('link')
     expect(links.length).toBeGreaterThan(0)
     for (const link of links) expect(link).toHaveAttribute('href', DEMO_URL)
   })
@@ -102,7 +105,7 @@ describe('Projects section', () => {
     vi.stubEnv('VITE_NOOK_REPO_URL', REPO_URL)
     await renderProjects('pt')
 
-    const links = screen.getAllByRole('link')
+    const links = nook().getAllByRole('link')
     expect(links).toHaveLength(1)
     expect(links[0]).toHaveAttribute('href', REPO_URL)
   })
@@ -112,10 +115,46 @@ describe('Projects section', () => {
     vi.stubEnv('VITE_NOOK_REPO_URL', 'nook')
     await renderProjects('pt')
 
-    expect(screen.queryAllByRole('link')).toHaveLength(0)
+    expect(nook().queryAllByRole('link')).toHaveLength(0)
   })
 
   it('uses European Portuguese', () => {
     expect(JSON.stringify(pt.projects)).not.toMatch(/rastreamento/i)
+  })
+})
+
+// Two freelance projects for the same client, text only: no captures of the client's software.
+const CLIENT_PROJECTS = {
+  pt: ['Sistema de Gestão Hoteleira (Freelance)', 'Site do Hotel e Restaurante (Freelance)'],
+  en: ['Hotel Management System (Freelance)', 'Hotel and Restaurant Website (Freelance)'],
+}
+
+describe.each(['pt', 'en'])('Client projects in %s', (lang) => {
+  beforeEach(() => {
+    vi.stubEnv('VITE_DEMO_URL', '')
+    vi.stubEnv('VITE_NOOK_REPO_URL', '')
+  })
+
+  it('come after the Nook, as text without images', async () => {
+    await renderProjects(lang)
+    const cards = screen.getAllByRole('article').map((a) => a.getAttribute('aria-label') ?? within(a).getByRole('heading', { level: 3 }).textContent)
+
+    expect(cards).toEqual(['Nook', ...CLIENT_PROJECTS[lang]])
+    for (const name of CLIENT_PROJECTS[lang]) {
+      const card = screen.getByRole('article', { name })
+      expect(within(card).queryAllByRole('img')).toHaveLength(0)
+      expect(within(card).getByText('Hotel Troia, Amares · 2026')).toBeInTheDocument()
+      expect(within(card).getAllByRole('listitem').length).toBeGreaterThanOrEqual(3)
+    }
+  })
+
+  it('links the hotel website, and only that one', async () => {
+    await renderProjects(lang)
+    const [system, site] = CLIENT_PROJECTS[lang].map((name) => screen.getByRole('article', { name }))
+
+    expect(within(system).queryAllByRole('link')).toHaveLength(0)
+    const link = within(site).getByRole('link', { name: lang === 'pt' ? 'Ver o site' : 'View the site' })
+    expect(link).toHaveAttribute('href', 'https://restaurantehoteltroia.com')
+    expect(link).toHaveAttribute('target', '_blank')
   })
 })

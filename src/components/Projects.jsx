@@ -4,10 +4,12 @@ import { ExternalLink } from 'lucide-react'
 import { GithubIcon } from './BrandIcons'
 import SectionHeading from './SectionHeading'
 import { NOOK_SHOTS, NOOK_STACK, nookLinks } from '../data/nook'
+import { CLIENT_PROJECTS } from '../data/clientProjects'
 
 const BUTTON =
   'inline-flex min-h-11 items-center justify-center gap-2 rounded-md px-5 font-mono text-sm font-semibold transition-[background-color,scale] duration-150 ease-out motion-safe:active:scale-[0.97]'
 const LABEL = 'font-mono text-xs text-[var(--text-mute)]'
+const TAG = 'rounded-md border border-tag-border bg-tag px-2 py-1 font-mono text-xs text-accent'
 
 // A capture on its own: the same 1px line and 12px corner as the cards, no device drawn around it.
 // The line is an outline, not a border, so it takes no room and both captures keep their shape.
@@ -47,6 +49,40 @@ function Shot({ name, demo, className = '' }) {
   )
 }
 
+// A freelance project: text and technologies, in a card like the ones in Experience.
+function ClientProject({ projectKey, stack, url }) {
+  const { t } = useTranslation()
+  const titleId = `${projectKey}-title`
+  const work = t(`projects.${projectKey}.work`, { returnObjects: true })
+
+  return (
+    <article aria-labelledby={titleId} className="flex h-full flex-col rounded-xl border border-line bg-card p-6">
+      <h3 id={titleId} className="text-lg font-semibold text-strong">{t(`projects.${projectKey}.name`)}</h3>
+      <p className={`mt-1 ${LABEL}`}>{t(`projects.${projectKey}.client`)}</p>
+      <p className="mt-4 leading-relaxed text-pretty text-[var(--text)]">{t(`projects.${projectKey}.lead`)}</p>
+      <ul className="mt-4 list-disc space-y-2 pl-5 leading-relaxed marker:text-accent">
+        {work.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+      <dl className="mt-5 flex flex-wrap gap-2">
+        <dt className={`w-full ${LABEL}`}>{t('projects.nook.stackTitle')}</dt>
+        {stack.map((tech) => (
+          <dd key={tech} className={TAG}>{tech}</dd>
+        ))}
+      </dl>
+      {url && (
+        <div className="mt-auto pt-6">
+          <a href={url} target="_blank" rel="noreferrer" className={`${BUTTON} border border-accent text-accent hover:bg-tag`}>
+            {t(`projects.${projectKey}.visit`)}
+            <ExternalLink size={16} aria-hidden="true" />
+          </a>
+        </div>
+      )}
+    </article>
+  )
+}
+
 export default function Projects() {
   const { t } = useTranslation()
   const { demo, repo } = nookLinks()
@@ -58,10 +94,10 @@ export default function Projects() {
       <Reveal className="mx-auto max-w-5xl">
         <SectionHeading id="projects-title" num={t('projects.num')} title={t('projects.title')} />
 
-        <div>
+        <article aria-labelledby="nook-title">
           <div className="md:flex md:items-end md:justify-between md:gap-10">
             <div className="max-w-[60ch]">
-              <h3 className="text-2xl font-bold text-strong">{t('projects.nook.name')}</h3>
+              <h3 id="nook-title" className="text-2xl font-bold text-strong">{t('projects.nook.name')}</h3>
               <p className="mt-3 text-lg leading-relaxed text-pretty text-[var(--text)]">{t('projects.nook.lead')}</p>
             </div>
 
@@ -110,7 +146,7 @@ export default function Projects() {
               <div className="flex flex-wrap gap-2">
                 <dt className={`w-full ${LABEL}`}>{t('projects.nook.stackTitle')}</dt>
                 {NOOK_STACK.map((tech) => (
-                  <dd key={tech} className="rounded-md border border-tag-border bg-tag px-2 py-1 font-mono text-xs text-accent">
+                  <dd key={tech} className={TAG}>
                     {tech}
                   </dd>
                 ))}
@@ -126,6 +162,12 @@ export default function Projects() {
               </ul>
             </div>
           </div>
+        </article>
+
+        <div className="mt-16 grid gap-6 md:grid-cols-2">
+          {CLIENT_PROJECTS.map(({ key, stack, url }) => (
+            <ClientProject key={key} projectKey={key} stack={stack} url={url} />
+          ))}
         </div>
       </Reveal>
     </section>
